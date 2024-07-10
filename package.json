@@ -1,0 +1,22 @@
+{
+  "name": "end-to-end",
+  "version": "1.0.0",
+  "description": "playwright e2e test",
+  "main": "index.js",
+  "scripts": {
+    "test:report": "playwright show-report",
+    "test:product-add": "playwright test tests/product/add/productAdd.spec.js --config=playwright.config.js --project=Chromium",
+    "test:template": "playwright test tests/product/template/template.spec.js --config=playwright.config.js --project=Chromium"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.12.12",
+    "npm-run-all": "^4.1.5",
+    "prettier": "3.2.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
