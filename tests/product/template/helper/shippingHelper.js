@@ -25,7 +25,7 @@ export const clickAddShippingTemplateButton = async page => {
   await expect(page.getByRole('heading', { name: '별도 설치비' })).toBeVisible()
   await expect(page.getByRole('heading', { name: '출고지 *' })).toBeVisible()
   await expect(page.getByRole('heading', { name: '반품지 *' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: '배송안내 *' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'error' })).toBeVisible()
 }
 
 /** 배송 템플릿 등록 유효성 검사 */
