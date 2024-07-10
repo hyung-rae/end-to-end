@@ -1,9 +1,11 @@
 name: E2E Test
+
 on:
   push:
 
 jobs:
   test:
+    name: Playwright Test
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
