@@ -1,5 +1,3 @@
-## 프로젝트 컨벤션
-
 ### 프로젝트 구조
 
 ```
@@ -20,27 +18,6 @@
         - 실제 테스트 코드
         - ui 요소는 html tag 네이밍 | xPath 으로 접근하기
         - `expect()`  테스트 결과 확인
-
-### script
-
-```json
-/** command */
-"scripts": {
-    "test:report": "playwright show-report",
-    "test:all": "npm-run-all --parallel test:product-add test:template",
-    "test:product-add": "playwright test tests/product/add/productAdd.spec.js --config=playwright.config.js --project=Chromium",
-    "test:template": "playwright test tests/product/template/template.spec.js --config=playwright.config.js --project=Chromium"
-}
-```
-
-- test: report
-    - 테스트 결과 브라우저 확인 (html)
-- test: all
-    - 작성된 모든 test (spec.js) 병렬 실행
-- test:[test name]
-    - 특정 test 코드만 실행
-
-## Playwright Test code
 
 ### spec.js
 
