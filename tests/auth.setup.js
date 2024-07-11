@@ -1,15 +1,12 @@
-import dotenv from 'dotenv'
 import { test as setup, expect } from '@playwright/test'
-
-dotenv.config()
 
 const authFile = 'playwright/.auth/user.json'
 
 setup('authenticate', async ({ page }) => {
   await page.goto(`/login`)
 
-  await page.locator('//*[@id="main"]/div[2]/div/form/div[1]/div[1]/div/input').fill(process.env.ACCOUNT)
-  await page.locator('//*[@id="main"]/div[2]/div/form/div[1]/div[2]/div/input').fill(process.env.PASSWORD)
+  await page.locator('//*[@id="main"]/div[2]/div/form/div[1]/div[1]/div/input').fill('rea1109@squares.ai')
+  await page.locator('//*[@id="main"]/div[2]/div/form/div[1]/div[2]/div/input').fill('Rkskek123!')
 
   await page.getByRole('button', { name: '로그인' }).click()
 
