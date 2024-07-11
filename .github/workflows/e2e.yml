@@ -1,7 +1,11 @@
 name: E2E Test
 
 on:
-  push:
+  workflow_call:
+    outputs:
+      test_result:
+        description: 'Playwright Test result'
+        value: ${{ jobs.report.outputs.result}}
 
 jobs:
   test:
@@ -25,21 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     if: always()
+    outputs:
+      result: ${{ needs.test.result }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - run: echo "Test job status ${{ needs.test.result }}"
-
-  slack:
-    runs-on: ubuntu-latest
-    needs: test
-    if: always()
-    steps:
-      - name: slack
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ needs.test.result }}
-          author_name: E2E Report
-          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
