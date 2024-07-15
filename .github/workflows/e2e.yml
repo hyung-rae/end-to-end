@@ -28,4 +28,4 @@ jobs:
         run: npm run test:template
 
       - name: Set output
-        run: echo "{test_result}=${{ job.status }}" >> $GITHUB_OUTPUT
+        run: echo "test_result=${{ job.status }}" >> $GITHUB_OUTPUT
