@@ -2,12 +2,17 @@ name: E2E Test
 
 on:
   workflow_call:
+    outputs:
+      test_result:
+        value: ${{ jobs.test.outputs.test_result }}
 
 jobs:
   test:
     name: Playwright Test
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    outputs:
+      test_result: ${{ steps.output.outputs.test_result }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,4 +33,5 @@ jobs:
         run: npm run test:template
 
       - name: Set output
+        id: output
         run: echo "test_result=${{ job.status }}" >> $GITHUB_OUTPUT
