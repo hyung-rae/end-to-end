@@ -2,10 +2,6 @@ name: E2E Test
 
 on:
   workflow_call:
-    outputs:
-      test_result:
-        description: 'Playwright Test result'
-        value: ${{ jobs.test.outputs.result}}
 
 jobs:
   test:
@@ -31,6 +27,5 @@ jobs:
       - name: Run Playwright tests (only template test)
         run: npm run test:template
 
-      - name: Test result
-        run: |
-          echo "::set-output name=test_result::${{ job.status }}"
+      - name: Set output
+        run: echo "{test_result}=${{ job.status }}" >> $GITHUB_OUTPUT
