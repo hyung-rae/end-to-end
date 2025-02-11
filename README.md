@@ -1,10 +1,6 @@
-- [Playwright Test code](#playwright-test-code)
-  - [구조](#구조)
-  - [spec.js](#specjs)
-  - [helper](#helper)
-  - [hooks](#hooks)
-
 # Playwright Test code
+> Playwright 로 테스트 코드 작성과 모듈화  
+> github action trigger를 통해 cicd 과정에서 테스트 코드 자동화
 
 ### 구조
 
